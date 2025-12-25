@@ -1,106 +1,62 @@
-/* Grundlayout */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* =========================
+   DESIGN SYSTEM – MyScripts
+========================= */
+
+:root {
+  --bg: #f9fafb;
+  --surface: #ffffff;
+  --brand: #2563eb;
+  --brand-dark: #1e40af;
+  --gradient: linear-gradient(135deg, #2563eb, #1e40af);
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --shadow: 0 12px 28px rgba(0,0,0,0.06);
+  --radius: 14px;
 }
 
-body {
-  font-family: "Segoe UI", sans-serif;
-  background: #f5f6fa;
-  color: #222;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+body { margin:0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--text);}
+.hidden { display:none; }
 
-/* Header */
-header {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  padding: 40px 20px;
-  text-align: center;
-}
+/* HEADER */
+.header { position:sticky; top:0; z-index:10; background: var(--surface); display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; box-shadow: var(--shadow);}
+.logo { font-weight:800; font-size:1.3rem; color: var(--brand);}
+.nav { display:flex; gap:1.5rem;}
+.nav a { text-decoration:none; font-weight:500;}
+.header-actions { display:flex; gap:0.6rem; align-items:center;}
 
-header h1 {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
-}
+/* HERO */
+.hero { min-height:70vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;}
 
-header p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-}
+/* SECTIONS */
+.section { max-width:1100px; margin:auto; padding:4rem 2rem; }
 
-/* Main */
-main {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  padding: 40px;
-  max-width: 1100px;
-  margin: auto;
-}
+/* STEPS */
+.steps-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:2rem;}
+.step-card { background:var(--surface); padding:2rem; border-radius:var(--radius); box-shadow:var(--shadow); text-align:center;}
+.step-card span { font-size:2rem; color:var(--brand);}
 
-/* Karten */
-.card {
-  background: white;
-  border-radius: 16px;
-  padding: 25px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+/* TRAINING */
+.sentence-box { background:var(--surface); padding:1.2rem; border-radius:var(--radius); text-align:center; font-size:1.2rem; margin-bottom:1.5rem; box-shadow:var(--shadow);}
+#drawCanvas { width:100%; max-width:900px; height:420px; display:block; margin:auto; border-radius:var(--radius); background: repeating-linear-gradient(to bottom, transparent 0px, transparent 34px, rgba(0,0,0,0.12) 35px), repeating-linear-gradient(to right, transparent 0px, transparent 34px, rgba(0,0,0,0.12) 35px), var(--surface); box-shadow: var(--shadow); touch-action:none;}
 
-.card h2 {
-  font-size: 1.4rem;
-}
+/* Buttons */
+.buttons { display:flex; justify-content:center; gap:1rem; margin-top:1.5rem;}
+.buttons button { padding:0.6rem 1.6rem; border-radius:999px; border:none; background:var(--brand); color:white; cursor:pointer;}
+.buttons button:first-child { background:transparent; color:var(--muted); border:1px solid var(--border);}
 
-/* Textfeld */
-textarea {
-  width: 100%;
-  height: 140px;
-  padding: 15px;
-  font-size: 1rem;
-  border-radius: 12px;
-  border: 1px solid #ccc;
-  resize: none;
-}
+/* PROGRESS */
+.alphabet-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(45px,1fr)); gap:0.6rem; margin-top:2rem;}
+.alphabet-grid div { background:var(--surface); padding:0.6rem 0; text-align:center; border-radius:6px; box-shadow:var(--shadow);}
+.alphabet-grid div.done { background:var(--gradient); color:white;}
 
-/* Button */
-button {
-  align-self: flex-start;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 999px;
-  background: #667eea;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.2s;
-}
+/* FOOTER */
+.footer { padding:2rem; text-align:center; background:var(--surface); box-shadow:var(--shadow);}
 
-button:hover {
-  background: #5a67d8;
-}
-
-/* Handschrift-Stil */
-.handwriting {
-  font-family: "Comic Sans MS", "Bradley Hand", cursive;
-  font-size: 1.4rem;
-  line-height: 1.6;
-  background: #fafafa;
-  padding: 15px;
-  border-radius: 10px;
-  min-height: 120px;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-  color: #666;
-}
+/* AUTH */
+.auth-container { max-width:380px; margin:7rem auto; padding:2.5rem 2rem; background:var(--surface); border-radius:var(--radius); box-shadow:var(--shadow); text-align:center;}
+.auth-logo { font-size:2rem; font-weight:800; color:var(--brand);}
+.auth-subtitle { color:var(--muted); margin-bottom:2rem;}
+.auth-container input { width:100%; padding:0.8rem; margin-bottom:0.8rem; border-radius:10px; border:1px solid var(--border);}
+.primary-btn { width:100%; padding:0.75rem; border-radius:999px; border:none; background:var(--gradient); color:white; font-weight:600; cursor:pointer; margin-bottom:0.6rem;}
+.secondary-btn { width:100%; padding:0.7rem; border-radius:999px; border:1px solid var(--border); background:transparent; color:var(--muted); cursor:pointer;}
